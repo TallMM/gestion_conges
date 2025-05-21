@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Module Gestion des Congés</title>
+    <style>
+        body {
+            font-family: "Helvetica", sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 30px;
+            max-width: 1000px;
+            margin: auto;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        ul {
+            list-style: disc;
+            margin-left: 20px;
+        }
+        img {
+            max-width: 100%;
+            margin-top: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .section {
+            margin-bottom: 50px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.05);
+        }
+        .dark {
+            background: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="section dark">
+            <h1>Module de Gestion des Congés</h1>
+            <h3>Automatisez la gestion complète des congés, du recrutement à la planification, directement dans Odoo.</h3>
+            <img src="Module.png" alt="Capture d'écran du module">
+        </div>
+
+        <div class="section">
+            <h2>Fonctionnalités principales :</h2>
+            <ul>
+                <li>Création automatique d’un employé après signature du contrat.</li>
+                <img src="CreationEmploye.png" alt="">
+                <li>Génération automatique du planning de congés.</li>
+                <img src="PlannigCongeAuCreer.png" alt="">
+                <li>Mise à jour du champs liés à l’employé (date d’embauche).</li>
+                <img src="ChngeDateDembauche.png" alt="">
+                <li>Calcul du reliquat de congé et du prochain départ en congé.</li>
+                <img src="Calcul reliquat.png" alt="">
+                <li>Vue liste avec surlignage du mois en cours :</li>
+                <ul> <li>Cela veut dire mettre en évidence (par une couleur ou une icône) les lignes où la date de début ou de fin est dans le mois actuel.
+Exemple : Si on est en mai 2025, alors la première ligne de Mamoudou Tall1 serait surlignée (parce que son congé commence en mai).
+Cela permet à l’utilisateur de repérer rapidement les congés en cours ce mois-ci.</li></ul>
+                <img src="MoisEnCours.png" alt="">
+                <li>Impression du planning (rapport PDF)</li>
+                <img src="Congé.png" alt="">
+            </ul>
+        </div>
+
+        <div class="section dark">
+            <h2>Exemples de vues</h2>
+            <h3>Vue formulaire</h3>
+            <img src="Formulaire.png" alt="Vue formulaire">
+            
+            <h3>Vue liste</h3>
+            <img src="Liste.png" alt="Vue liste">
+        </div>
+
+        <div class="section">
+            <h2>Assistance & Contact</h2>
+            <p>Pour toute demande de personnalisation ou de support :</p>
+            <p>Email : <a href="mailto:support@votreentreprise.com">contact@smartmssa.com</a></p>
+        </div>
+
+    </div>
+</body>
+</html>

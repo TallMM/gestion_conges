@@ -1,0 +1,130 @@
+<odoo>
+  <data>
+
+    <!-- Vue Formulaire -->
+    <record id="view_gestion_conge_form" model="ir.ui.view">
+      <field name="name">gestion.conge.form</field>
+      <field name="model">gestion.conge</field>
+      <field name="arch" type="xml">
+        <form string="Planning des Congés">
+          <header>
+            <button name="action_print_report"
+                    type="object"
+                    string="Imprimer le planning"
+                    class="btn-primary"
+                    icon="fa-print"/>
+          </header>
+          <sheet>
+            <group>
+              <group>
+                <field name="employe_id"/>
+                <field name="matricule"/> 
+                <field name="departement"/>
+                <field name="poste"/>
+                <field name="date_embauche"/>
+              </group>
+              <group>
+                <field name="dernier_depart"/>
+                <field name="nombre_jours" string="Nbr de jours" min="0" max="30" widget="nombre_jours_validated"/>
+                <field name="reliquat" readonly="1"/>
+                <field name="prochain_depart" readonly="1"/>
+                <field name="date_prevue" string="Date Prévue"/>
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <!-- Vue Liste -->
+    <record id="view_gestion_conge_list" model="ir.ui.view">
+      <field name="name">gestion.conge.list</field>
+      <field name="model">gestion.conge</field>
+      <field name="arch" type="xml">
+        <list string="Planning des Congés">
+          <field name="employe_id"/>
+          <field name="matricule"/>
+          <field name="departement"/>
+          <field name="poste"/>
+          <field name="date_embauche"/>
+          <field name="dernier_depart"/>
+          <field name="nombre_jours"/>
+          <field name="reliquat" readonly="1"/>
+          <field name="prochain_depart" decoration-danger="is_current_month"/>
+          <field name="date_prevue"/>
+        </list>
+      </field>
+    </record>
+
+    <!-- Vue Kanban -->
+    <record id="view_gestion_conge_kanban" model="ir.ui.view">
+      <field name="name">gestion.conge.kanban</field>
+      <field name="model">gestion.conge</field>
+      <field name="arch" type="xml">
+        <kanban class="o_kanban_small_column">
+          <field name="employe_id"/>
+          <field name="matricule"/>
+          <field name="departement"/>
+          <field name="poste"/>
+          <field name="date_embauche"/>
+          <field name="dernier_depart"/>
+          <field name="prochain_depart"/>
+          <field name="date_prevue"/>
+          <field name="nombre_jours"/>
+          <field name="reliquat" readonly="1"/>
+          <templates>
+            <t t-name="kanban-box">
+              <div class="oe_kanban_global_click o_kanban_card">
+                <strong><t t-esc="record.employe_id.value"/></strong>
+                <ul>
+                  <li>Matricule : <t t-esc="record.matricule.value"/></li>
+                  <li>Département : <t t-esc="record.departement.value"/></li>
+                  <li>Poste : <t t-esc="record.poste.value"/></li>
+                  <li>Date d'embauche : <t t-esc="record.date_embauche.value"/></li>
+                  <li>Dernier départ en congé : <t t-esc="record.dernier_depart.value"/></li>
+                  <li>Prochain départ en congé : <t t-esc="record.prochain_depart.value"/></li>
+                  <li>Date prévue : <t t-esc="record.date_prevue.value"/></li>
+                  <li>Jours pris : <t t-esc="record.nombre_jours.value"/></li>
+                  <li>Reliquat : <t t-esc="record.reliquat.value"/></li>
+                </ul>
+              </div>
+            </t>
+          </templates>
+        </kanban>
+      </field>
+    </record>
+
+    <!-- Vue Calendrier -->
+    <record id="view_gestion_conge_calendar" model="ir.ui.view">
+      <field name="name">gestion.conge.calendar</field>
+      <field name="model">gestion.conge</field>
+      <field name="arch" type="xml">
+        <calendar string="Planning des Congés"
+                  date_start="prochain_depart"
+                  date_stop="date_prevue"
+                  color="employe_id">
+          <field name="employe_id"/>
+          <field name="matricule"/>
+          <field name="departement"/>
+          <field name="poste"/>
+          <field name="date_embauche"/>
+          <field name="dernier_depart"/>
+          <field name="nombre_jours"/>
+          <field name="reliquat" readonly="1"/>
+        </calendar>
+      </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_gestion_conge" model="ir.actions.act_window">
+      <field name="name">Planning</field>
+      <field name="res_model">gestion.conge</field>
+      <field name="view_mode">list,form,kanban,calendar</field>
+    </record>
+
+    <!-- Menu -->
+    <menuitem id="menu_gestion_conge_root" name="Gestion_Congés"/>
+    <menuitem id="menu_gestion_conge" name="Planning" parent="menu_gestion_conge_root" action="action_gestion_conge"/>
+
+  </data>
+</odoo>

@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_gestion_conge,access.gestion.conge,model_gestion_conge,base.group_user,1,1,1,1
+access_gestion_conges_planning_user,access_gestion_conges_planning_user,model_gestion_conges_planning,base.group_user,1,1,1,1
+access_full_planning,access_full_planning,model_gestion_conges_planning,base.group_user,1,1,1,1
+access_full_conge,access_full_conge,model_gestion_conge,base.group_user,1,1,1,1

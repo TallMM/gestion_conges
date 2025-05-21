@@ -1,0 +1,28 @@
+<!--<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <template id="assets_backend" inherit_id="web.assets_backend" name="gestion_conges_assets">
+    <xpath expr="." position="inside">
+      <style type="text/css">
+        /* ✅ Vue Liste : ligne en rouge */
+        tr.o_data_row.o_list_record.o_decoration_danger {
+          color: #dc3545 !important;
+          font-weight: bold;
+        }
+
+        /* ✅ Vue Kanban : contour et texte rouge */
+        .o_kanban_card.highlight_depart {
+          border: 2px solid #dc3545 !important;
+          color: #dc3545 !important;
+          font-weight: bold;
+        }
+
+        /* ✅ Vue Calendrier : fond rouge clair */
+        .o_calendar_view .highlight_depart {
+          background-color: #dc3545 !important;
+          color: #dc3545 !important;
+          font-weight: bold;
+        }
+      </style>
+    </xpath>
+  </template>
+</odoo> -->

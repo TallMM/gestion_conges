@@ -1,0 +1,69 @@
+<odoo>
+  <data>
+    <template id="report_planning_conge">
+      <t t-call="web.external_layout">
+        <t t-set="doc" t-value="docs[0] if docs else None"/>
+        
+        <main>
+          <div class="container-fluid mt-4">
+            <!-- En-tête du rapport -->
+            <div class="row mb-4 text-center">
+              <div class="col">
+                <h2 class="font-weight-bold">Planning de Congés</h2>
+                <hr class="border-primary" style="border-width: 2px; width: 60%"/>
+              </div>
+            </div>
+
+            <!-- Corps du rapport -->
+            <div class="row justify-content-center">
+              <div class="col-8">
+                <table class="table table-borderless">
+                  <tbody>
+                    <!-- Section Informations Employé -->
+                    <tr class="bg-light">
+                      <th colspan="2" class="h5 py-2">Informations de l'Employé</th>
+                    </tr>
+                    <tr t-if="doc"><th width="40%">Employé</th><td class="font-weight-bold"><t t-esc="doc.employe_id.name"/></td></tr>
+                    <tr t-if="doc"><th>Matricule</th><td class="text-muted"><t t-esc="doc.matricule"/></td></tr>
+                    <tr t-if="doc"><th>Département</th><td><t t-esc="doc.departement.name"/></td></tr>
+                    <tr t-if="doc"><th>Poste</th><td><t t-esc="doc.poste.name"/></td></tr>
+
+                    <!-- Section Dates Clés -->
+                    <tr class="bg-light">
+                      <th colspan="2" class="h5 py-2">Historique des Congés</th>
+                    </tr>
+                    <tr t-if="doc"><th>Date d'embauche</th><td><span t-field="doc.date_embauche"/></td></tr>
+                    <tr t-if="doc"><th>Dernier départ en congé</th><td><span t-field="doc.dernier_depart"/></td></tr>
+                    <tr t-if="doc"><th>Prochain départ en congé</th><td class="text-success font-weight-bold"><span t-field="doc.prochain_depart"/></td></tr>
+                    <tr t-if="doc"><th>Date prévue</th><td><span t-field="doc.date_prevue"/></td></tr>
+
+                    <!-- Section Calculs -->
+                    <tr class="bg-light">
+                      <th colspan="2" class="h5 py-2">Calcul des Congés</th>
+                    </tr>
+                    <tr t-if="doc"><th>Jours pris</th><td><t t-esc="doc.nombre_jours"/> jours</td></tr>
+                    <tr t-if="doc"><th>Reliquat</th><td class="text-primary font-weight-bold"><t t-esc="doc.reliquat"/> jours</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Pied de page stylisé -->
+            <div class="row mt-4">
+              <div class="col text-center text-muted small">
+                Généré le <t t-esc="datetime.datetime.now().strftime('%d/%m/%Y %H:%M')"/>
+              </div>
+            </div>
+          </div>
+
+          <!-- Style personnalisé -->
+          <style>
+            .table td, .table th { padding: 12px 15px; }
+            .bg-light { background-color: #f8f9fa!important; }
+            .border-primary { border-color: #007bff!important; }
+          </style>
+        </main>
+      </t>
+    </template>
+  </data>
+</odoo>

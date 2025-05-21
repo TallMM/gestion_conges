@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_form_contrat" model="ir.ui.view">
+    <field name="name">gestion.contrat.form</field>
+    <field name="model">gestion_conges.contrat</field>
+    <field name="arch" type="xml">
+        <form string="Contrat">
+            <sheet>
+                <group>
+                    <field name="name"/>
+                    <field name="candidat_id"/>
+                    <field name="date_signature"/>
+                    <field name="is_signed"/>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+</odoo>

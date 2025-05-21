@@ -1,0 +1,6 @@
+<odoo>
+  <record id="model_gestion_conge" model="ir.model">
+    <field name="name">gestion.conge</field>
+    <field name="model">gestion.conge</field>
+  </record>
+</odoo>

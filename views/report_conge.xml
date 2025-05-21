@@ -1,0 +1,16 @@
+<odoo>
+  <template id="report_conge">
+    <t t-name="gestion_conges.report_conge">
+      <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="doc">
+          <div class="page">
+            <h2>Planning des Congés</h2>
+            <p>Employé : <t t-esc="doc.employe_id.name"/></p>
+            <p>Départ : <t t-esc="doc.dernier_depart"/></p>
+            <p>Prochain : <t t-esc="doc.prochain_depart"/></p>
+          </div>
+        </t>
+      </t>
+    </t>
+  </template>
+</odoo>

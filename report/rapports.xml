@@ -1,0 +1,19 @@
+<!-- Fichier: report/rapports.xml -->
+<odoo>
+  <data>
+    <record id="action_report_planning_conge" model="ir.actions.report">
+      <field name="name">Planning de Congés</field>
+      <field name="model">gestion.conge</field>
+      <field name="report_type">qweb-pdf</field>
+      <field name="report_name">gestion_conges.report_planning_conge</field>
+      
+      <!-- Correction : Ajoutez des guillemets autour de la chaîne -->
+      <field name="print_report_name">'Planning_conge'</field>  <!-- Nom statique -->
+      
+      <!-- OU, pour un nom dynamique avec le nom de l'employé -->
+      <field name="print_report_name">'Planning_conge_' + (object.employe_id.name or 'SansNom')</field>
+      
+      <field name="binding_model_id" ref="model_gestion_conge"/>
+    </record>
+  </data>
+</odoo>
